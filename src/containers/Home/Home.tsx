@@ -8,9 +8,12 @@ import {
 import { fetchCategories } from '../../store/categoryThunk';
 import TransactionCard from '../../components/TransactionCard/TransactionCard';
 import Spinner from '../../components/Spinner/Spinner';
-import {useAppDispatch, useAppSelector} from '../../app/hooks';
-import {selectLoading, selectTransactions} from "../../store/TransactionSlice";
-import {selectCategories} from "../../store/categorySlice";
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import {
+  selectLoading,
+  selectTransactions,
+} from '../../store/TransactionSlice';
+import { selectCategories } from '../../store/categorySlice';
 
 const Home = () => {
   const transaction = useAppSelector(selectTransactions);
