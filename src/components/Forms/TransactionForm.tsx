@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {  ApiTransaction } from '../../types';
+import { ApiTransaction } from '../../types';
 import { getCategoriesType } from '../../store/categoryThunk';
 import { useDispatch } from 'react-redux';
 import { useAppSelector } from '../../app/hooks';

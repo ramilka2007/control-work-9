@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { ApiCategory } from '../../types';
+import ButtonSpinner from '../Spinner/ButtonSpinner';
 
 interface Props {
   onSubmit: (category: ApiCategory) => void;
   existingCategory?: ApiCategory;
+  isLoading?: boolean;
 }
 
 const emptyState: ApiCategory = {
@@ -11,7 +13,11 @@ const emptyState: ApiCategory = {
   name: '',
 };
 
-const CategoryForm: React.FC<Props> = ({ onSubmit, existingCategory }) => {
+const CategoryForm: React.FC<Props> = ({
+  onSubmit,
+  existingCategory,
+  isLoading,
+}) => {
   const initialState: ApiCategory = existingCategory
     ? { ...existingCategory }
     : emptyState;
@@ -68,6 +74,7 @@ const CategoryForm: React.FC<Props> = ({ onSubmit, existingCategory }) => {
         />
       </div>
       <button type="submit" className="btn btn-primary mt-2">
+        {isLoading && <ButtonSpinner />}
         {existingCategory ? 'Update' : 'Create'}
       </button>
     </form>

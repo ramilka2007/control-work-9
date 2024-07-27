@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../app/store';
 import {
   deleteTransactions,
@@ -8,6 +8,7 @@ import {
 import { fetchCategories } from '../../store/categoryThunk';
 import TransactionCard from '../../components/TransactionCard/TransactionCard';
 import Spinner from '../../components/Spinner/Spinner';
+import { useAppDispatch } from '../../app/hooks';
 
 const Home = () => {
   const transaction = useSelector(
@@ -20,7 +21,7 @@ const Home = () => {
   const isLoading = useSelector(
     (state: RootState) => state.transactions.isLoading,
   );
-  const dispatch: AppDispatch = useDispatch();
+  const dispatch: AppDispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(getTransactions());

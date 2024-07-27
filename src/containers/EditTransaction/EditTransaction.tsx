@@ -32,7 +32,13 @@ const EditTransaction = () => {
 
   return (
     <div>
-      {transaction && <TransactionForm onSubmit={onSubmit} existingTransaction={transaction} />}
+      {transaction && (
+        <TransactionForm
+          onSubmit={onSubmit}
+          existingTransaction={transaction}
+          isLoading={isUpdating}
+        />
+      )}
     </div>
   );
 };
