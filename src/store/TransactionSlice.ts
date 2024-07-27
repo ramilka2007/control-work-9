@@ -40,7 +40,9 @@ const transactionSlice = createSlice({
       state.isError = true;
     });
 
-    builder.addCase(
+    builder.addCase(getTransactions.pending, (state: TransactionState) => {
+      state.isLoading = true;
+    }).addCase(
       getTransactions.fulfilled,
       (state: TransactionState, { payload: transactions }) => {
         const transactionObject: ApiTransactions = transactions;
@@ -69,7 +71,9 @@ const transactionSlice = createSlice({
         state.isLoading = false;
         state.transactions = transactionArray.reverse();
       },
-    );
+    ).addCase(getTransactions.rejected, (state: TransactionState) => {
+      state.isLoading = false;
+    });
 
     builder.addCase(
       fetchOneTransaction.fulfilled,
@@ -79,10 +83,12 @@ const transactionSlice = createSlice({
     );
   },
   selectors: {
+    selectTransactions: (state) => state.transactions,
     selectOneTransaction: (state) => state.oneTransaction,
+    selectLoading: (state) => state.isLoading,
   },
 });
 
 export const transactionReducer = transactionSlice.reducer;
 
-export const { selectOneTransaction } = transactionSlice.selectors;
+export const { selectOneTransaction, selectTransactions, selectLoading } = transactionSlice.selectors;

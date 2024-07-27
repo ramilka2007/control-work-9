@@ -8,19 +8,15 @@ import {
 import { fetchCategories } from '../../store/categoryThunk';
 import TransactionCard from '../../components/TransactionCard/TransactionCard';
 import Spinner from '../../components/Spinner/Spinner';
-import { useAppDispatch } from '../../app/hooks';
+import {useAppDispatch, useAppSelector} from '../../app/hooks';
+import {selectLoading, selectTransactions} from "../../store/TransactionSlice";
+import {selectCategories} from "../../store/categorySlice";
 
 const Home = () => {
-  const transaction = useSelector(
-    (state: RootState) => state.transactions.transactions,
-  );
-  const categories = useSelector(
-    (state: RootState) => state.categories.categories,
-  );
+  const transaction = useAppSelector(selectTransactions);
+  const categories = useAppSelector(selectCategories);
   const total = useSelector((state: RootState) => state.transactions.total);
-  const isLoading = useSelector(
-    (state: RootState) => state.transactions.isLoading,
-  );
+  const isLoading = useAppSelector(selectLoading);
   const dispatch: AppDispatch = useAppDispatch();
 
   useEffect(() => {
