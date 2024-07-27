@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import {Link, NavLink} from 'react-router-dom';
 
 const Toolbar = () => {
     return (
@@ -22,13 +22,11 @@ const Toolbar = () => {
                             border: '1px solid black',
                             margin: '0 15px'
                         }}/>
-                        <button
+                        <Link to="/transactions/add-transaction"
                             className="nav-link text-black fw-bold"
-                            onClick={() => {
-                            }}
                         >
                             Add
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </nav>

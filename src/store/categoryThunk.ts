@@ -56,3 +56,8 @@ export const updateCategory = createAsyncThunk<void, UpdateCategoryArg>(
         await axiosApi.put(`/categories/${id}.json`, apiCategory);
     },
 );
+
+export const getCategoriesType = createAsyncThunk<ApiCategories, string>('categories/getByType', async (type: string) => {
+    const {data: response} = await axiosApi.get(`/categories.json?orderBy="type"&equalTo="${type}"`);
+    return response;
+});

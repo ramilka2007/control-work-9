@@ -5,6 +5,7 @@ import Home from "./containers/Home/Home";
 import Categories from "./containers/Categories/Categories";
 import EditFormCategory from "./containers/EditFormCategory/EditFormCategory";
 import AddFormCategory from "./containers/AddFormCategory/AddFormCategory";
+import AddTransaction from "./containers/AddTransactiom/AddTransaction";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
                 <Route path="/categories" element={<Categories />} />
                 <Route path="/categories/add-category" element={<AddFormCategory/>}/>
                 <Route path="/categories/edit-category/:id" element={<EditFormCategory/>}/>
+                <Route path="/transactions/add-transaction" element={<AddTransaction/>}/>
             </Routes>
     </>
   )
