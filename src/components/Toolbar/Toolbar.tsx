@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import ModalFormTransactions from "../ModalForm/ModalFormTransactions";
+import ModalFormTransactions from "../Forms/ModalFormTransactions";
 
 const Toolbar = () => {
     return (
