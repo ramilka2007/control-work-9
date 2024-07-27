@@ -36,7 +36,6 @@ const EditTransaction = () => {
         <TransactionForm
           onSubmit={onSubmit}
           existingTransaction={transaction}
-          isLoading={isUpdating}
         />
       )}
     </div>
